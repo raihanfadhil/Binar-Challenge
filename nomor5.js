@@ -1,20 +1,20 @@
 function getSplitName(personName) {
     const givenNumber = personName.split(' ')
-    const [first, middle, last] = personName.split(' ')
+    const [firstName, middleName, lastName] = personName.split(' ')
 
     var obj = {
         ...(givenNumber.length == 3 && {
-            firstName: first,
-            middle: middle,
-            last: last
+            first: firstName,
+            middle: middleName,
+            last: lastName
         }),
         ...(givenNumber.length == 2 && {
-            firstName: first,
+            first: firstName,
             middle: null,
-            last: middle
+            last: middleName
         }),
         ...(givenNumber.length == 1 && {
-            firstName: first,
+            first: firstName,
             middle: null,
             last: null
         })

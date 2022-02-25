@@ -39,35 +39,35 @@ const dataPenjualanNovel = [
 
 function getInfoPenjualan(dataPenjualan) {
 
-    tBeli = dataPenjualan.map(obj => obj.hargaBeli)
-    tJual = dataPenjualan.map(obj => obj.hargaJual)
-    tTerjual = dataPenjualan.map(obj => obj.totalTerjual)
-    tTerjual2 = dataPenjualan.map(obj => obj.totalTerjual)
-    tStok = dataPenjualan.map(obj => obj.sisaStok)
-    namaProduk = dataPenjualan.map(obj => obj.namaProduk)
-    penulis = dataPenjualan.map(obj => obj.penulis)
+    var totalBeli = dataPenjualan.map(obj => obj.hargaBeli)
+    var totalJual = dataPenjualan.map(obj => obj.hargaJual)
+    var totalTerjual = dataPenjualan.map(obj => obj.totalTerjual)
+    var totalTerjual2 = dataPenjualan.map(obj => obj.totalTerjual)
+    var totalStok = dataPenjualan.map(obj => obj.sisaStok)
+    var namaProduk = dataPenjualan.map(obj => obj.namaProduk)
+    var penulis = dataPenjualan.map(obj => obj.penulis)
 
     var tModal = 0
-    var tkeuntg = 0
-    var pk = 0
+    var tKeuntungan = 0
+    var pKeuntungan = 0
 
     for (i = 0; i <= 3; i++) {
-        var tModal = (tBeli[i] * (tTerjual[i] + tStok[i])) + tModal
-        var tkeuntg = ((tJual[i] * tTerjual[i])) + tkeuntg
+        var tModal = (totalBeli[i] * (totalTerjual[i] + totalStok[i])) + tModal
+        var tKeuntungan = ((totalJual[i] * totalTerjual[i])) + tKeuntungan
     }
 
-    var tkeuntg = tkeuntg - tModal
-    var pk = (tkeuntg / tModal) * 100
-    var arry = tTerjual.sort((a, b) => a - b)  // sortir array total terjual  menjadi [20,150.171,213]
-    var terlaris = arry[tTerjual.length - 1]   // mencari value total terjual tertinggi dengan cara panjang array total terjual - 1 ( karena array dimulai dari 0)
-    var cariTerlaris = tTerjual2.indexOf(terlaris) // mencari array berapakah yang terdapat nilai terjual terbesar dengan indexOf
-    var bukuTerlaris = namaProduk[cariTerlaris]   // mencari nama buku terlaris yaitu namaproduk[index array cariTerlaris]
+    var tKeuntungan = tKeuntungan - tModal
+    var pKeuntungan = (tKeuntungan / tModal) * 100
+    var arry = totalTerjual.sort((a, b) => a - b)  // Array pada totalTerjual di sortir menjadi [20,150.171,213]
+    var terlaris = arry[totalTerjual.length - 1]   // Value dari total terjual tertinggi dengan cara jumlah data totalTerjual - 1 => 4-1 = 3( karena array dimulai dari 0)
+    var cariTerlaris = totalTerjual2.indexOf(terlaris) // Array yang terdapat nilai terjual terbesar dengan indexOf
+    var bukuTerlaris = namaProduk[cariTerlaris]  // Buku terlaris pada namaproduk
     var penulisTerlaris = penulis[cariTerlaris]
 
     const buku = {
-        totalKeuntungan: 'Rp. ' + tkeuntg,    // (harga jual * total terjual)   - total modal
+        totalKeuntungan: 'Rp. ' + tKeuntungan,    // (harga jual * total terjual)   - total modal
         totalModal: 'Rp. ' + tModal,    // harga beli * (total terjual + totalstok ) 
-        persentaseKeuntungan: pk + '%',    //  total keuntungan (total keuntungan / total modal ) * 100%
+        persentaseKeuntungan: pKeuntungan + '%',    //  total keuntungan (total keuntungan / total modal ) * 100%
         produkBukuTerlaris: bukuTerlaris,   /*  buku terlaris diambil dari value obj.totalTerjual tertinggi  */
         penulisTerlaris: penulisTerlaris,  // 
     }
