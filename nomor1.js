@@ -1,4 +1,3 @@
-// Nomor 1
 function changeWord(selectedText, changedText, text) {
     return text = text.replace(selectedText, changedText)
 }

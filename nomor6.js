@@ -1,13 +1,13 @@
-function getAngkaTerbesarKedua(dataAngka) {
-    const dataNumbers = dataAngka.sort((a, b) => a - b); //
-    const dataArray = dataNumbers[dataAngka.length - 2]; //Jumlah data dalam array = 9
-
-    const angkaTerbesarKedua = +(dataArray)
-    if (typeof angkaTerbesarKedua == "number") {
-        return dataArray
+function getAngkaTerbesarKedua(personName) {
+    if (typeof personName == "undefined" || typeof personName == "number") {
+        return Error("Bukan Array")
     }
+    const dataNumbers = personName.sort((a, b) => a - b); //
+    const angkaTerbesarKedua = dataNumbers[personName.length - 2]; //Jumlah data dalam array = 9
 
-    return angkaTerbesarKedua
+    if (typeof angkaTerbesarKedua == "number") {
+        return angkaTerbesarKedua
+    }
 }
 
 const dataAngka = [9, 4, 7, 7, 4, 3, 2, 2, 8] //Jika di sort = [2, 2, 3, 4, 4, 7, 7, 8, 9]

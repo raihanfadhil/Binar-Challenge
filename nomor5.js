@@ -1,4 +1,7 @@
 function getSplitName(personName) {
+    if (typeof personName != "string") {
+        return Error("Bukan String")
+    }
     const givenNumber = personName.split(' ')
     const [firstName, middleName, lastName] = personName.split(' ')
 
@@ -21,7 +24,7 @@ function getSplitName(personName) {
     }
 
     if (givenNumber.length > 3) {
-        throw Error("This Function is only for 3 character name")
+        return Error("This Function is only for 3 character name")
     }
     if (typeof obj == "object") {
         return obj
