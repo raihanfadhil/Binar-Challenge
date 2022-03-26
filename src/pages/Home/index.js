@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View ,SafeAreaView,ScrollView,ImageBackground,Dimensions,StatusBar,TouchableOpacity ,Image} from 'react-native'
+import { StyleSheet, Text, View ,SafeAreaView,ScrollView,Dimensions,StatusBar} from 'react-native'
 import React from 'react'
 import { ListMovies,LatestUploads } from '../../components'
 
