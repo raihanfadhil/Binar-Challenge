@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, SafeAreaView, ScrollView, Dimensions, StatusBar,ImageBackground ,Image,Share,Button} from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView, ScrollView, Dimensions, StatusBar,ImageBackground ,Image,Share} from 'react-native'
 import React ,{ useEffect, useState } from 'react'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { IconLove,IconShare,IconBack ,Star} from '../../assets'

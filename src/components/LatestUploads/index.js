@@ -2,7 +2,6 @@ import { StyleSheet,Image,View ,Text} from 'react-native'
 import React ,{ useEffect, useState } from 'react'
 import axios from 'axios'
 import { TouchableOpacity } from 'react-native-gesture-handler'
-import { screen} from '../../utils/Dimensions'
 import { useNavigation } from '@react-navigation/native'
 
 
