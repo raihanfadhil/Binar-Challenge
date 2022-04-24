@@ -8,8 +8,8 @@ import { getdataBook } from '../../actions'
 import ListBooks from '../../components/ListBooks'
 import NetInfo from '@react-native-community/netinfo';
 import PopularBooks from '../../components/PopularBooks'
-import { IconLogout } from '../../assets/icons';
 import { useNavigation } from '@react-navigation/native'
+import { IconLogout } from '../../assets/icons';
 import { FETCHING_DATA,FETCHING_BOOK } from '../../types';
 
 const Home = () => {
@@ -95,7 +95,7 @@ const Home = () => {
             {connection == true ? '' : 'Connection Failed!'}
           </Text>
           <View style={{flexDirection:'row', justifyContent:'space-between'}}>
-            <Text style={styles.textWelcome}>Welcome, {name}</Text>
+            <Text testID='welcomeText' style={styles.textWelcome}>Welcome, {name}</Text>
             <TouchableOpacity onPress={goLogout}>
               <Image source={IconLogout} style={styles.navIcon}/>
             </TouchableOpacity>

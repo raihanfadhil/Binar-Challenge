@@ -82,32 +82,35 @@ const Register = () => {
     }, []);
 
   return (
-  <SafeAreaView style={styles.background}>
+  <SafeAreaView testID='registerView' style={styles.background}>
    <StatusBar translucent backgroundColor="transparent" />
     <ScrollView>
      <View style={styles.headerImg}>
-      <Image  source = {BG} style={styles.imgLogin}></Image>
+      <Image testID='bannerImage' source = {BG} style={styles.imgLogin}></Image>
       <View style={{paddingTop:20}}>
         <TextInput
+          testID='nameInput'
           style={styles.input}
           placeholder="Enter Full Name"
           placeholderTextColor={'#DDBEBE'}
           value={name}
           onChangeText={txtHandler}/>
-        <TextInput  
+        <TextInput 
+          testID='emailInput' 
           style={styles.input}
           placeholder="Enter an Email"
           placeholderTextColor={'#DDBEBE'}
           value={email}
           onChangeText={emailHandler} />
-        <TextInput 
+        <TextInput
+          testID='passInput' 
           style={styles.input}
           placeholder="Enter Password"
           placeholderTextColor={'#DDBEBE'}
           value={pass} 
           onChangeText={passHandler}
           secureTextEntry={true}/>
-        <TouchableOpacity style={styles.btnRegister} 
+        <TouchableOpacity testID='registerButton' style={styles.btnRegister} 
           onPress= {  () => {   
             dispatch(fetchingRegister(email,pass,name))
               .then(() => {
@@ -138,7 +141,7 @@ const Register = () => {
          
         <Text style={{color:'black',alignSelf:'center',paddingTop:15,fontSize:16, fontWeight: 'bold',}}>Already have an account?</Text>
         
-        <TouchableOpacity style={styles.btnLogin} onPress={() => {
+        <TouchableOpacity testID='loginLink' style={styles.btnLogin} onPress={() => {
           setName('')
           setEmail('')
           setPass('')

@@ -4,4 +4,6 @@ import Login from './Login'
 import Register from './Register'
 import Splash from './Splash'
 import RegisterComplete from './RegisterComplete'
-export {BookDetail,Home,Login,Register,Splash,RegisterComplete}
+import Menu from './Menu'
+import MediaHandling from './MediaHandling'
+export {BookDetail,Home,Login,Register,Splash,RegisterComplete,Menu,MediaHandling}

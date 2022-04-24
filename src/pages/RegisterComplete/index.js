@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View ,SafeAreaView,ScrollView,StatusBar,
-  Dimensions,Image,Pressable, TouchableOpacity} from 'react-native'
+  Dimensions,Image, TouchableOpacity} from 'react-native'
 import React from 'react'
 import { Success } from '../../assets/images'
 import { useNavigation } from '@react-navigation/native'
@@ -16,10 +16,9 @@ const RegisterComplete = () => {
           <View style={styles.headerText}>
             <Text style={styles.textComplete}>Account Created Succesfully</Text>
             <Image source={Success} style={styles.imgSuccess}/>
-            {/* <Text style={styles.textVerif}>We sent email verification to your email</Text> */}
           </View>
           <View>
-            <TouchableOpacity style={styles.buttonBack} onPress={() => 
+            <TouchableOpacity testID='backToLoginButton' style={styles.buttonBack} onPress={() => 
               navigation.navigate('Login')}>
               <Text style={styles.textBack}>Back to Login</Text>
             </TouchableOpacity>

@@ -14,7 +14,7 @@ const Splash = ({navigation}) => {
       if (isFetching==true&&books){
         navigation.replace('Home');
       }else{
-        navigation.replace('Login');
+        navigation.replace('Menu');
       }
     }, 3000);
   }, [navigation])
@@ -22,7 +22,7 @@ const Splash = ({navigation}) => {
   return (
     <SafeAreaView style={styles.background}>
       <StatusBar translucent backgroundColor="transparent" />
-        <View style={styles.background}>
+        <View style={styles.background} testID='welcomeScreen'>
           <ImageBackground style={styles.background} source={BG}>
             <View View style={styles.bgtext}>
               <Text style = {styles.txtsplash}>InfinityLib</Text>

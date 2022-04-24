@@ -93,4 +93,32 @@ export function fetchingRegister(email,pass,name) {
             passwordReg: resRegis.password,
         });
     });
+}
+
+export function fetchingLoginTest(dataT) {
+    return axios.post('http://code.aldipee.com/api/v1/auth/login',{dataT})     
+}  
+export function fetchingRegisterTest(dataR) {
+    return axios.post('http://code.aldipee.com/api/v1/auth/register',{dataR})     
+} 
+
+export function fetchingBookTest(dataB) {
+    return axios.get('http://code.aldipee.com/api/v1/books',
+            {
+                headers:{
+                    "Authorization": `Bearer ${dataB}`
+                }
+            }
+        );     
+} 
+
+export function fetchingBookDetailTest(token,id) {
+    const ids = id
+    return axios.get('http://code.aldipee.com/api/v1/books/6231453513c01e6f8b566ece',
+        {
+                headers:{
+                    "Authorization": `Bearer ${token}`
+                }
+            }
+        );     
 } 

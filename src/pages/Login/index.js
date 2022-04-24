@@ -8,7 +8,6 @@ import { BG } from '../../assets/images'
 import { useNavigation } from '@react-navigation/native'
 import { useDispatch,useSelector} from 'react-redux'
 import {  fetchingLogin } from '../../actions'
-import { notifikasi } from '../BookDetail/Notifikasi'
 import NetInfo from '@react-native-community/netinfo';
 
 const Login = () => {
@@ -93,16 +92,16 @@ const Login = () => {
   };
 
   return (
-  <SafeAreaView style={styles.background}>
+  <SafeAreaView testID='loginView' style={styles.background}>
    <StatusBar translucent backgroundColor="transparent" />
     <ScrollView>
       <View style={styles.headerImg}>
-        <Image  source = {BG} style={styles.imgLogin}></Image>
+        <Image testID='bannerImage' source = {BG} style={styles.imgLogin}></Image>
         <View style={{paddingTop:20}}>
-          <TextInput style={styles.input} placeholder="Email" placeholderTextColor={'#DDBEBE'} value={email} onChangeText={txtHandler} />
-          <TextInput style={styles.input} placeholder="Password" placeholderTextColor={'#DDBEBE'} value={pass} onChangeText={passHandler} secureTextEntry={true} />
+          <TextInput testID='emailInput' style={styles.input} placeholder="Email" placeholderTextColor={'#DDBEBE'} value={email} onChangeText={txtHandler} />
+          <TextInput testID='passInput' style={styles.input} placeholder="Password" placeholderTextColor={'#DDBEBE'} value={pass} onChangeText={passHandler} secureTextEntry={true} />
           
-          <TouchableOpacity style={styles.btnLogin} 
+          <TouchableOpacity testID='loginButton' style={styles.btnLogin} 
             onPress= {  () => {   
               dispatch(fetchingLogin(email,pass))
               .then(() => {
@@ -120,7 +119,7 @@ const Login = () => {
             <Text style={styles.textLogin}>Sign In</Text>
           </TouchableOpacity>
           <Text style={{color:'black',alignSelf:'center',paddingTop:15,fontSize:16, fontWeight: 'bold',}}>Don't have an account?</Text>
-          <TouchableOpacity style={styles.btnRegister} onPress={() => {
+          <TouchableOpacity testID='registerLink' style={styles.btnRegister} onPress={() => {
             setEmail('')
             setPassword('')
             setregEmail('')
