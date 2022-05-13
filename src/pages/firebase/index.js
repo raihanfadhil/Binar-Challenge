@@ -2,7 +2,6 @@ import { StyleSheet, Text, View ,Button} from 'react-native'
 import React,{useEffect} from 'react'
 import crashlytics from '@react-native-firebase/crashlytics'
 import messaging from '@react-native-firebase/messaging';
-
 async function onSignIn(user) {
   crashlytics().log('User signed in.');
   await Promise.all([
@@ -17,11 +16,8 @@ async function onSignIn(user) {
   ]);
 }
 
-const App = () => {
-  const getToken = async () => {
-    const token = await messaging().getToken()
-    alert(JSON.stringify(token))
-  }
+
+const Firebase = () => {
 
   const onNotificationOpen = () => {
     //it will be trigger when app was in background
@@ -43,16 +39,20 @@ const App = () => {
 
         }
       })
-    
+
     messaging().onMessage(remoteMessage =>{
       console.log(remoteMessage, 'On Message')
     })
   }
 
+  const getToken = async () => {
+    const token = await messaging().getToken()
+    console.log(token)
+  }
   useEffect(() => {
-    onNotificationOpen()
     getToken()
-    crashlytics().log('App mounted.')
+    crashlytics().log('App mounted.');
+    onNotificationOpen()
   }, []);
 
   return (
@@ -72,13 +72,13 @@ const App = () => {
       />
       <Button title="Test Crash" onPress={() => crashlytics().crash()} />
 
-
+    
 
       </View>
     </View>
   )
 }
 
-export default App
+export default Firebase
 
 const styles = StyleSheet.create({})
